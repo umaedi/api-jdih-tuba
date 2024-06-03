@@ -9,18 +9,18 @@
 <meta property="og:url" content="https://api-jdih.tulangbawangkab.go.id">
 <meta property="og:title" content="API JDIH Kabupaten Tulang Bawang">
 <meta property="og:description" content="API JDIH Kabupaten Tulang Bawang">
-<meta property="og:image" content="{{ asset('assets/img/logo-jdih.png') }}">
-<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/logo-jdih.png') }}">
+<meta property="og:image" content="{{ asset('assets/img/jdih.png') }}">
+<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/jdih.png') }}">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://api-jdih.tulangbawangkab.go.id">
-<meta property="twitter:title" content="duluin">
+<meta property="twitter:title" content="API JDIH Tulang Bawang">
 <meta property="twitter:description" content="API JDIH Kabupaten Tulang Bawang">
-<meta property="twitter:image" content="{{ asset('assets/img/logo-jdih.png') }}">
+<meta property="twitter:image" content="{{ asset('assets/img/jdih.png') }}">
 
-<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/logo-jdih.png') }}">
-<link rel="icon" type="image/png" href="{{ asset('assets/img/logo-jdih.png') }}">
+<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/jdih.png') }}">
+<link rel="icon" type="image/png" href="{{ asset('assets/img/jdih.png') }}">
 <title>
     API JDIH Kabupaten Tulang Bawang
 </title>

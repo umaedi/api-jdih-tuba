@@ -66,13 +66,13 @@
         <div class="endpoint mb-4 p-3 bg-white border rounded">
             <h5>GET /api/dokumen</h5>
             <p>Mengambil list dokumen</p>
-            <pre><code>curl -X GET "https://api-jdih.tulangbawangkab.go.id" -H "accept: application/json"</code></pre>
+            <pre><code>curl -X GET "https://api-jdih.tulangbawangkab.go.id/api/dokumen" -H "accept: application/json"</code></pre>
         </div>
         
         <div class="endpoint mb-4 p-3 bg-white border rounded">
             <h5>GET /api/dokumen</h5>
             <p>Menampilkan dokumen berdasarkan id_dokumen</p>
-            <pre><code>curl -X GET "https://api-jdih.tulangbawangkab.go.id/{id}" -H "accept: application/json" -H "Content-Type: application/json"</code></pre>
+            <pre><code>curl -X GET "https://api-jdih.tulangbawangkab.go.id/api/dokumen/{id}" -H "accept: application/json" -H "Content-Type: application/json"</code></pre>
         </div>
         
         <!-- Tambahkan endpoint lainnya sesuai kebutuhan -->

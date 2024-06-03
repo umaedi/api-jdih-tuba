@@ -46,7 +46,7 @@
     <div class="row">
       <div class="col-lg-9 mx-auto py-3">
         <div class="text-center">
-            <h3>API JDIH Kabupaten Tulang Bawang</h3>
+            <h3>API Jaringan Dokumentasi dan Informasi Hukum Nasional (JDIH) <br> Kabupaten Tulang Bawang</h3>
             <p style="font-size: 18px">Gerbang Anda untuk integrasi yang kuat</p>
         </div>
       </div>

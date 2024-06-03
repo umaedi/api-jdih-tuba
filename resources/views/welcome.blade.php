@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets') }}/img/apple-icon.png">
-<link rel="icon" type="image/png" href="{{ asset('assets') }}/img/favicon.png">
+<link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets') }}/img/jdih.png">
+<link rel="icon" type="image/png" href="{{ asset('assets') }}/img/jdih.png">
 <title>
     API JDIH Kabupaten Tulang Bawang
 </title>
@@ -50,13 +50,13 @@
         <div class="endpoint mb-4 p-3 bg-white border rounded">
             <h5>GET /api/dokumen</h5>
             <p>Mengambil list dokumen</p>
-            <pre><code>curl -X GET "https://api.example.com/dokumen" -H "accept: application/json"</code></pre>
+            <pre><code>curl -X GET "https://api-jdih.tulangbawangkab.go.id" -H "accept: application/json"</code></pre>
         </div>
         
         <div class="endpoint mb-4 p-3 bg-white border rounded">
             <h5>GET /api/dokumen</h5>
             <p>Menampilkan dokumen berdasarkan id_dokumen</p>
-            <pre><code>curl -X GET "https://api.example.com/dokumen/{id}" -H "accept: application/json" -H "Content-Type: application/json"</code></pre>
+            <pre><code>curl -X GET "https://api-jdih.tulangbawangkab.go.id/{id}" -H "accept: application/json" -H "Content-Type: application/json"</code></pre>
         </div>
         
         <!-- Tambahkan endpoint lainnya sesuai kebutuhan -->

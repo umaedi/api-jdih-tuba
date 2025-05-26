@@ -12,3 +12,6 @@ Route::apiResource('/peraturan', App\Http\Controllers\Api\PeraturanController::c
 
 //route for document
 Route::apiResource('/dokumen', App\Http\Controllers\Api\DokumenController::class);
+
+//Route for instagram
+Route::get('/instagram', [App\Http\Controllers\Api\InstagramController::class, 'index']);

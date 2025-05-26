@@ -12,17 +12,70 @@ class DokumenController extends Controller
     public function index()
     {
         $documents = DB::table('document')
-        ->join('data_lampiran', 'document.id', '=', 'data_lampiran.id_dokumen')
-        ->where('is_publish', 1)
-        ->orderByDesc('document.created_at')->paginate(10);
+        ->leftJoin('data_lampiran', 'document.id', '=', 'data_lampiran.id_dokumen')
+        ->leftJoin('data_subyek', 'document.id', '=', 'data_subyek.id_dokumen')
+        ->select(
+            'document.id as sc_id',
+            'document.tahun_terbit as sc_tahun',
+            'document.tanggal_penetapan as sc_penetapan',
+            'document.tanggal_pengundangan as sc_pengundangan',
+            'document.jenis_peraturan as sc_jenis',
+            'document.nomor_peraturan as sc_nomor',
+            'document.judul as sc_judul',
+            'document.nomor_panggil as sc_panggil',
+            'document.singkatan_jenis as sc_singkatan',
+            'document.tempat_terbit as sc_tempat',
+            'document.penerbit as sc_penerbit',
+            'document.deskripsi_fisik as sc_fisik',
+            'document.sumber as sc_sumber',
+            'data_subyek.subyek as sc_subyek',
+            'document.isbn as sc_isbn',
+            'document.status as sc_status',
+            'document.bahasa as sc_bahasa',
+            'document.bidang_hukum as sc_bidkum',
+            'document.teu as sc_teu',
+            'document.nomor_induk_buku as sc_nib',
+            'data_lampiran.judul_lampiran as sc_lampiran',
+            'data_lampiran.dokumen_lampiran as sc_url'
+        )
+        ->where('document.is_publish', 1)
+        ->limit(6)->get();
 
-        // Manipulasi data menggunakan map
-        $documents->getCollection()->transform(function ($document) {
-            $document->dokumen_lampiran = env('URL_DOCUMENT'). $document->dokumen_lampiran;
-            return $document;
-        });
+    $documents = $documents->map(function ($document) {
+        return [
+            'idData' => $document->sc_id,
+            'tahun_pengundangan' => $document->sc_tahun,
+            'tanggal_penetapan' => $document->sc_penetapan,
+            'tanggal_pengundangan' => $document->sc_pengundangan,
+            'jenis' => $document->sc_jenis,
+            'noPeraturan' => $document->sc_nomor,
+            'judul' => $document->sc_judul,
+            'noPanggil' => $document->sc_panggil,
+            'singkatanJenis' => $document->sc_singkatan,
+            'tempatTerbit' => $document->sc_tempat,
+            'penerbit' => $document->sc_penerbit,
+            'deskripsiFisik' => $document->sc_fisik,
+            'sumber' => $document->sc_sumber,
+            'subjek' => $document->sc_subyek,
+            'isbn' => $document->sc_isbn,
+            'status' => $document->sc_status,
+            'bahasa' => $document->sc_bahasa,
+            'bidangHukum' => $document->sc_bidkum,
+            'teuBadan' => $document->sc_teu,
+            'nomorIndukBuku' => $document->sc_nib,
+            'fileDownload' => $document->sc_lampiran,
+            'urlDownload' => env('URL_DOCUMENT') . $document->sc_url,
+            'urlDetailPeraturan' => 'https://jdih.tulangbawangkab.go.id/dokumen/view?id=' . $document->sc_id,
+            'operasi' => '4',
+            'display' => '1'
+        ];
+    });
 
-        return new DocumentResource(true, 'List dokumen', $documents);
+    return response()->json([
+            'success' => true,
+            'message' => 'List dokumen',
+            'metadata' => $documents
+        ]);
     }
 
     public function show($id)
@@ -30,7 +83,11 @@ class DokumenController extends Controller
         $document = DB::table('document')
         ->join('data_lampiran', 'document.id', '=', 'data_lampiran.id_dokumen')
         ->where('document.id', $id)
-        ->get();
-        return new DocumentResource(true, 'Detail dokumen', $document);
+        ->first();
+        return response()->json([
+            'success' => true,
+            'message' => 'Detail dokumen',
+            'metadata' => $document
+        ]);
     }
 }

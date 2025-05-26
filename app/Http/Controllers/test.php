@@ -40,7 +40,7 @@ $row_array->bidangHukum=$row["sc_bidkum"]; //berisi pembidangan/pengkategorian i
 $row_array->teuBadan=$row["sc_teu"];//nama instansi terkait
 $row_array->nomorIndukBuku=$row["sc_nib"];//khusus untuk monografi/buku bila PUU bisa dikosongkan atau diisi '-'
 $row_array->fileDownload=$row["sc_lampiran"]; //berisi nama file ex. peraturan.pdf, peraturan.docx
-$row_array->urlDownload= 'test' . $row["sc_url"];//berisi url dan nama file ex. domain.com/peraturan.pdf atau menyesuaikan
+$row_array->urlDownload=$row["sc_url"];//berisi url dan nama file ex. domain.com/peraturan.pdf atau menyesuaikan
 // $row_array->urlDetailPeraturan='https://jdih-kaltim.kemenkumham.go.id/dokumen/view?id='.$row["sc_id"]; //berisi url halaman detail peraturan
 $row_array->urlDetailPeraturan='https://jdih.tulangbawangkab.go.id/dokumen/view?id='.$row["sc_id"]; //berisi url halaman detail peraturan
 $row_array->operasi="4"; //wajib ada

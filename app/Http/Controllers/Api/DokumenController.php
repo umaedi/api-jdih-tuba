@@ -18,10 +18,10 @@ class DokumenController extends Controller
 
         if($category !== 'peraturan') {
             return response()->json([
-                'code' => 200,
+                'code' => 404,
                 'success' => true,
                 'message' => 'Data tidak ditemukan',
-            ], 200);
+            ], 404);
         }
 
         $documents = DB::table('document')

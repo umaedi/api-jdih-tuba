@@ -9,8 +9,13 @@ use Illuminate\Http\Request;
 
 class DokumenController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $page = $request->input('page', 1);
+        $limit = $request->input('per_page', 2);
+        $filter = $request->input('filter', "DESC");
+        $skip = ($page - 1) * $limit;
+
         $documents = DB::table('document')
         ->leftJoin('data_lampiran', 'document.id', '=', 'data_lampiran.id_dokumen')
         ->leftJoin('data_subyek', 'document.id', '=', 'data_subyek.id_dokumen')
@@ -39,8 +44,14 @@ class DokumenController extends Controller
             'data_lampiran.dokumen_lampiran as sc_url'
         )
         ->where('document.is_publish', 1)
-        ->limit(6)->get();
+        ->skip($skip)
+        ->take($limit)
+        ->orderBy('document.tanggal_pengundangan', $filter)
+        ->get();
 
+    $total = DB::table('document')
+        ->where('document.is_publish', 1)
+        ->count();
     $documents = $documents->map(function ($document) {
         return [
             'idData' => $document->sc_id,
@@ -71,11 +82,7 @@ class DokumenController extends Controller
         ];
     });
 
-    return response()->json([
-            'success' => true,
-            'message' => 'List dokumen',
-            'metadata' => $documents
-        ]);
+    return $this->responseWithPaginate('Data semua notifikasi', $documents, $page, $limit, $total);
     }
 
     public function show($id)

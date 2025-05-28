@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\DocumentResource;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -15,6 +14,15 @@ class DokumenController extends Controller
         $limit = $request->input('per_page', 10);
         $filter = $request->input('filter', "DESC");
         $skip = ($page - 1) * $limit;
+        $category = $request->input('category', '');
+
+        if($category !== 'peraturan') {
+            return response()->json([
+                'code' => 200,
+                'success' => true,
+                'message' => 'Data tidak ditemukan',
+            ], 200);
+        }
 
         $documents = DB::table('document')
         ->leftJoin('data_lampiran', 'document.id', '=', 'data_lampiran.id_dokumen')

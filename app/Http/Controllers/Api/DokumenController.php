@@ -12,7 +12,7 @@ class DokumenController extends Controller
     public function index(Request $request)
     {
         $page = $request->input('page', 1);
-        $limit = $request->input('per_page', 2);
+        $limit = $request->input('per_page', 10);
         $filter = $request->input('filter', "DESC");
         $skip = ($page - 1) * $limit;
 

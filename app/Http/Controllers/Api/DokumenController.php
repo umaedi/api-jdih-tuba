@@ -14,7 +14,7 @@ class DokumenController extends Controller
         $limit = $request->input('per_page', 10);
         $filter = $request->input('filter', "DESC");
         $skip = ($page - 1) * $limit;
-        $category = $request->input('category', '');
+        $category = $request->input('category', 'peraturan');
 
         if($category !== 'peraturan') {
             return response()->json([

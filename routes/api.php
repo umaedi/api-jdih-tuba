@@ -15,3 +15,7 @@ Route::apiResource('/dokumen', App\Http\Controllers\Api\DokumenController::class
 
 //Route for instagram
 Route::get('/instagram', [App\Http\Controllers\Api\InstagramController::class, 'index']);
+
+//route for berita
+Route::get('/news', [App\Http\Controllers\Api\NewsController::class, 'index']);
+Route::get('/news/{id}', [App\Http\Controllers\Api\NewsController::class, 'show']);

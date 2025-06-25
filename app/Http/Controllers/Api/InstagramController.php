@@ -16,7 +16,7 @@ class InstagramController extends Controller
     public function index()
     {
         try {
-           $response = Http::get('http://192.168.11.2:9913/api/instagram');
+           $response = Http::get('http://192.168.11.2:9917/api/instagram');
             $responseData = $response->json()['metadata'];
 
             // Filter hanya media_type yang bukan VIDEO
